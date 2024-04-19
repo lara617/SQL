@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Alunos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerenciamento de Alunos</h1>
+        
+        <h2>Adicionar Aluno</h2>
+        <label for="nomeInput">Nome:</label>
+        <input type="text" id="nomeInput"><br>
+        <label for="idadeInput">Idade:</label>
+        <input type="number" id="idadeInput"><br>
+        <label for="classeInput">Classe:</label>
+        <input type="number" id="classeInput"><br>
+        <label for="notaInput">Nota:</label>
+        <input type="number" step="0.1" id="notaInput"><br>
+        <button onclick="adicionarAluno()">Adicionar Aluno</button>
+
+        <hr>
+
+        <h2>Executar Consulta</h2>
+        <label for="sqlQuery"></label>
+        <textarea id="sqlQuery" rows="4" cols="50"></textarea><br>
+        <button onclick="executeQuery()">Executar Consulta</button>
+
+        <hr>
+
+        <h2>Resultado</h2>
+        <div id="queryResult"></div>
+
+        <h2>Lista de Alunos</h2>
+        <ul id="listaAlunos"></ul>
+    </div>
+
+    <script src="sqlite.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
