@@ -1,24 +1,25 @@
-const express = require('express');
-const path = require('path');
-const app = express();
-const port = 3000;
+// Importar o SQLite
+const sqlite3 = require('sqlite3').verbose();
 
-// Middleware para servir arquivos estáticos (como a página HTML)
-app.use(express.static(path.join(__dirname)));
-
-// Endpoint para fornecer os dados dos alunos via API
-app.get('/api/alunos', (req, res) => {
-    // Aqui você pode adicionar a lógica para carregar os dados dos alunos do banco de dados
-    // e enviar como resposta
-    const alunos = [
-        { ID: 1, Nome: 'João', Idade: 20, Classe: 'A', Nota: 8 },
-        { ID: 2, Nome: 'Maria', Idade: 22, Classe: 'B', Nota: 7 },
-        { ID: 3, Nome: 'Pedro', Idade: 21, Classe: 'A', Nota: 9 }
-    ];
-    res.json(alunos);
+// Abrir a conexão com o banco de dados
+let db = new sqlite3.Database(':memory:', (err) => {
+    if (err) {
+        console.error(err.message);
+    }
+    console.log('Conexão bem-sucedida ao banco de dados SQLite.');
 });
 
-// Iniciar o servidor
-app.listen(port, () => {
-    console.log(`Servidor Node.js rodando em http://localhost:${port}`);
+// Executar os comandos SQL para criar tabela e inserir dados
+db.serialize(() => {
+    // Comandos SQL para criar tabela e inserir dados aqui
+});
+
+// Fechar a conexão com o banco de dados ao finalizar
+process.on('SIGINT', () => {
+    db.close((err) => {
+        if (err) {
+            console.error(err.message);
+        }
+        console.log('Conexão com o banco de dados SQLite encerrada.');
+    });
 });
