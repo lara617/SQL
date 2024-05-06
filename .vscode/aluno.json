@@ -1,7 +1,0 @@
-[
-    {"ID": 1, "Nome": "João", "Idade": 16, "Classe": 10, "Nota": 8.5},
-    {"ID": 2, "Nome": "Maria", "Idade": 14, "Classe": 9, "Nota": 7.2},
-    {"ID": 3, "Nome": "Pedro", "Idade": 17, "Classe": 10, "Nota": 9.0},
-    {"ID": 4, "Nome": "Ana", "Idade": 15, "Classe": 10, "Nota": 8.8},
-    {"ID": 5, "Nome": "Carlos", "Idade": 13, "Classe": 8, "Nota": 6.5}
-]
